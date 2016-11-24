@@ -110,7 +110,7 @@ def poll(msg, chat_id, chat_type, from_id):
 				markup = InlineKeyboardMarkup(inline_keyboard=buttons)
 				bot.sendMessage(chat_id, 'Sondaggio registrato')
 			else:
-				bot.sendMessage(chat_id, 'C\'√® gi√† un sondaggio in corso')
+				bot.sendMessage(chat_id, 'C\'Ë gi‡† un sondaggio in corso')
 
 def ongoing(chat_id, from_id, chat_type):
 	try:
@@ -121,9 +121,9 @@ def ongoing(chat_id, from_id, chat_type):
 #Close poll and generate the result
 def exitpoll(msg, chat_id, from_id):
 	if (from_id != 66441008) and (from_id != 163329729):
-		bot.sendMessage(chat_id, 'Solo il Gran Maestro pu√≤ chiudere un sondaggio in corso')
+		bot.sendMessage(chat_id, 'Solo il Gran Maestro puÚ chiudere un sondaggio in corso')
 		if from_id == 146874789:
-			risp = ['Bea piantala', 'Ti ho detto che solo il Gran Maestro pu√≤ ordinarlo', 'Non sei un Gran Maestro.', 'Che scassamaroni', 'testarda eh', 'Solo il Gran Maestro!', 'Non ti obbedir√≤ mai']
+			risp = ['Bea piantala', 'Ti ho detto che solo il Gran Maestro puÚ ordinarlo', 'Non sei un Gran Maestro.', 'Che scassamaroni', 'testarda eh', 'Solo il Gran Maestro!', 'Non ti obbedirÚ mai']
 			bot.sendMessage(chat_id, random.choice(risp))
 	else:
 		global poll_of_the_day
@@ -166,7 +166,7 @@ def on_callback_query(msg):
             bot.editMessageText(msg_idf, poll_of_the_day, reply_markup=markup)
         else:
             if votanti[from_id] == data:
-                bot.answerCallbackQuery(query_id, text=msg['from']['username'] + ' ha gi√† espresso il suo voto')
+                bot.answerCallbackQuery(query_id, text=msg['from']['username'] + ' ha gi‡ espresso il suo voto')
             else:
                 risultati[data] += 1
                 risultati[votanti[from_id]] -= 1
@@ -196,10 +196,9 @@ def on_chat_message(msg):
         exitpoll(msg, chat_id, from_id)
     elif text == '/ongoing':
         ongoing(chat_id, from_id, chat_type)
-    elif text[:6] == '/check':
+    elif text == '/check':
         if chat_id == 163329729 or chat_id == 66441008:
-            text = text.split(' ')
-            Circolari.main(text[1])
+            Circolari.main(TOKEN)
 
 bot = telepot.Bot(TOKEN)
 
