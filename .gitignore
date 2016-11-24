@@ -9,6 +9,8 @@
 archivio.txt
 bak.*
 chatter.txt
+contatti.txt
+*cache*
 *.save
 *.log
 
