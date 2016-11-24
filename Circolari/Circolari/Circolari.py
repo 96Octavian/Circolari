@@ -4,7 +4,7 @@ TOKEN = sys.argv[1]
 
 def main(TOKEN):
     bot = telepot.Bot(TOKEN)
-    base_link = 'http://liceobramante.gov.it/'
+    base_link = 'http://liceobramante.gov.it'
     res = requests.get('http://liceobramante.gov.it/genitori/circolari/')
     #circolari = bs4.BeautifulSoup(res.text, 'lxml')
     circolari = bs4.BeautifulSoup(res.text, 'html.parser')
