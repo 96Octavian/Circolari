@@ -89,7 +89,7 @@ def poll(msg, chat_id, chat_type, from_id):
 
 	if chat_type == 'group' or chat_type == 'supergroup':
 		try:
-			message_with_inline_keyboard = bot.sendMessage(chat_id, poll_of_the_day, reply_markup=markup) if (from_id == 66441008) or (from_id == 163329729) else bot.sendMessage(chat_id, 'Solo il Grande Maestro del concilio puÃ² indire un sondaggio')
+			message_with_inline_keyboard = bot.sendMessage(chat_id, poll_of_the_day, reply_markup=markup) if (from_id == 66441008) or (from_id == 163329729) else bot.sendMessage(chat_id, 'Solo il Grande Maestro del concilio può indire un sondaggio')
 		except telepot.exception.TelegramError:
 			bot.sendMessage(chat_id, 'Nessun sondaggio impostato')
 	if chat_type == 'private':
