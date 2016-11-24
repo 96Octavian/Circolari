@@ -110,7 +110,7 @@ def poll(msg, chat_id, chat_type, from_id):
 				markup = InlineKeyboardMarkup(inline_keyboard=buttons)
 				bot.sendMessage(chat_id, 'Sondaggio registrato')
 			else:
-				bot.sendMessage(chat_id, 'C\'è già  un sondaggio in corso')
+				bot.sendMessage(chat_id, 'C\'è già un sondaggio in corso')
 
 def ongoing(chat_id, from_id, chat_type):
 	try:
