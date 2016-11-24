@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import bs4, requests, telepot, json, sys
 
 TOKEN = sys.argv[1]
@@ -21,7 +23,7 @@ def main(TOKEN):
     if len(temp3) != 0:
         with open('archivio.txt', 'a') as archivio:
             for e in temp3:
-                archivio.write(str(e) + "\n")
+                archivio.write(e + "\n")
                 bot.sendMessage('163329729', e.replace("@n", "\n"), parse_mode='HTML')
                 bot.sendMessage('66441008', e.replace("@n", "\n"), parse_mode='HTML')
     else:
