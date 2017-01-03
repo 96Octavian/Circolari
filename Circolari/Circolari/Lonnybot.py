@@ -197,8 +197,12 @@ def on_chat_message(msg):
     elif text == '/ongoing':
         ongoing(chat_id, from_id, chat_type)
     elif text == '/check':
-        if chat_id == 163329729 or chat_id == 66441008:
-            Circolari.main(TOKEN)
+        circ = Circolari.ondemand(TOKEN, chat_id)
+        if circ:
+            for e in circ:
+                bot.sendMessage(chat_id, e.replace("@n", "\n"), parse_mode='HTML')
+        else:
+            bot.sendMessage(chat_id, '<i>Nessun nuovo avviso</i>', parse_mode='HTML')
 
 bot = telepot.Bot(TOKEN)
 
